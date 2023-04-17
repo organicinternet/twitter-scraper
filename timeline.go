@@ -288,8 +288,14 @@ func (timeline *timeline) parseTweets() ([]*Tweet, string) {
 			if entry.Content.Operation.Cursor.CursorType == "Bottom" {
 				cursor = entry.Content.Operation.Cursor.Value
 			}
+			if entry.Content.Operation.Cursor.CursorType == "Top" {
+				cursor = entry.Content.Operation.Cursor.Value
+			}
 		}
 		if instruction.ReplaceEntry.Entry.Content.Operation.Cursor.CursorType == "Bottom" {
+			cursor = instruction.ReplaceEntry.Entry.Content.Operation.Cursor.Value
+		}
+		if instruction.ReplaceEntry.Entry.Content.Operation.Cursor.CursorType == "Top" {
 			cursor = instruction.ReplaceEntry.Entry.Content.Operation.Cursor.Value
 		}
 	}
