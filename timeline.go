@@ -302,6 +302,7 @@ func (timeline *timeline) parseTweets() ([]*Tweet, string) {
 	if pinnedTweet != nil && len(orderedTweets) > 0 {
 		orderedTweets = append([]*Tweet{pinnedTweet}, orderedTweets...)
 	}
+	cursor = ""
 	return orderedTweets, cursor
 }
 
@@ -327,5 +328,6 @@ func (timeline *timeline) parseUsers() ([]*Profile, string) {
 			cursor = instruction.ReplaceEntry.Entry.Content.Operation.Cursor.Value
 		}
 	}
+	cursor = ""
 	return orderedProfiles, cursor
 }
