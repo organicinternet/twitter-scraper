@@ -31,7 +31,7 @@ func (s *Scraper) getSearchTimeline(query string, maxNbr int, cursor string) (*t
 		maxNbr = 50
 	}
 
-	req, err := s.newRequest("GET", "https://twitter.com/i/api/2/search/adaptive.json")
+	req, err := s.newRequest("GET", "https://twitter.com/i/api/2/search/guide.json")
 	if err != nil {
 		return nil, err
 	}
